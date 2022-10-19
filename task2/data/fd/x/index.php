@@ -1,18 +1,13 @@
 <?php 
 define('SUPPORTED_EXTENSIONS',['php','txt','json']);
-define("STATIC_LEVEL",5);
+//define("PATH",'media' . DIRECTORY_SEPARATOR);
+$basePath = $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['SERVER_NAME'] . dirname($_SERVER['REQUEST_URI']);
+
 $arrayofdir=explode('\\', __DIR__);
 $currentDir=end($arrayofdir) .DIRECTORY_SEPARATOR;
-//images path
-$dirLevele=count($arrayofdir)-STATIC_LEVEL;
-$basePathForImages = $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['SERVER_NAME'] . dirname($_SERVER['REQUEST_URI'],$dirLevele);
-$imagePath =$basePathForImages .'/images/';
-
-//directories path
-$basePathForDir = $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['SERVER_NAME'] . dirname($_SERVER['REQUEST_URI']);
-$dataPath =$basePathForDir .DIRECTORY_SEPARATOR .$currentDir;
+$imagePath =$basePath .'/images/';
+$dataPath =$basePath .DIRECTORY_SEPARATOR .$currentDir;
 $readDir= __DIR__.DIRECTORY_SEPARATOR;
-
 if($_SERVER['REQUEST_METHOD'] == "POST"){
     if(isset($_POST['create-folder'])){
         // create folder
