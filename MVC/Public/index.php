@@ -38,4 +38,4 @@ app()->run();
 // $mysqlManger= new MysqlManger;
 // $mysqlManger->connect();
 //$mysqlManger->create(['username'=>'zaghlola','password'=>12344565]);
-dd(User::create(['username'=>'fahd','password'=>12344565]));
+//dd(User::create(['username'=>'fahd','password'=>12344565]));
