@@ -39,10 +39,10 @@ class Route{
 
         }
         if(! $findRoute){
-            echo '404';
+            abort(404);
         }
         if($is405){
-            echo '405';
+            abort(405);
         }
 
     }
